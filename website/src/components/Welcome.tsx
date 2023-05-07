@@ -15,20 +15,20 @@ export default function Welcome(){
                 setCurrentText(currentText + text[currentIndex])
                 setCurrentIndex(currentIndex + 1)
             }
-        }, 50)
+        }, 25)
         return () => clearInterval(interval)
     }, [currentIndex, currentText])
 
 
     
     return(
-        <div className="min-h-screen w-full bg-neutral-800 flex flex-col items-center">
+        <div className="min-h-screen w-full bg-gradient-to-b from-neutral-800 to-neutral-800 via-neutral-700 flex flex-col items-center">
             <div className="flex flex-row items-center justify-between w-full h-full min-h-screen">
                 <div className="text-8xl text-pink-500 p-4 flex flex-col justify-center items-center h-full w-full">
                     <h1>unai</h1>
                     <p className="text-2xl text-white translate-x-1/2 -translate-y-full">you and ai</p>
                 </div>
-                <div className="h-full w-full flex items-center justify-center p-3">
+                <div className="w-full flex items-center justify-center p-3">
                     <div className="p-1 border rounded-lg h-full max-w-prose bg-black flex flex-col font-mono text-sm whitespace-pre-line">
                         {">"}{currentText}
                     </div>
