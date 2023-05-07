@@ -29,7 +29,7 @@ export default function Welcome(){
                     <p className="text-2xl text-white translate-x-1/2 -translate-y-full">you and ai</p>
                 </div>
                 <div className="h-full w-full flex items-center justify-center p-3">
-                    <div className="p-1 border rounded-lg h-full w-full bg-black flex flex-col font-mono text-sm whitespace-pre-line">
+                    <div className="p-1 border rounded-lg h-full max-w-prose bg-black flex flex-col font-mono text-sm whitespace-pre-line">
                         {">"}{currentText}
                     </div>
                 </div>
