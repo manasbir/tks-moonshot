@@ -18,17 +18,17 @@ export default function Information(){
                 <div className="flex flex-row justify-evenly items-stretch gap-5 mt-5">
                     <div className="bg-white rounded-lg flex flex-col items-center text-black p-2 max-w-prose">
                         <Image src={Pencil} alt="Vercel Logo" className='w-3/4 mb-3'/>
-                        <h2>Notes</h2>
+                        <h2><b>Notes</b></h2>
                         <p>UNAI reads your notes to understand what you{"'"}re working on and what your priorities are.</p>
                     </div>
                     <div className="bg-white rounded-lg flex flex-col items-center text-black p-2 max-w-prose">
                         <Image src={Feedback} alt="Vercel Logo" className='w-3/4 mb-3'/>
-                        <h2>Feedback </h2>
+                        <h2><b>Feedback </b></h2>
                         <p>UNAI reads your notes to understand what you{"'"}re working on and what your priorities are.</p>
                     </div>
                     <div className="bg-white rounded-lg flex flex-col items-center text-black p-2 max-w-prose">
                         <Image src={Heart} alt="Vercel Logo" className='w-3/4 mb-3'/>
-                        <h2>Bio-Metrics (Coming Soon!)</h2>
+                        <h2><b>Bio-Metrics (Coming Soon!)</b></h2>
                         <p>UNAI reads your notes to understand what you{"'"}re working on and what your priorities are.</p>
                     </div>
                 </div>
