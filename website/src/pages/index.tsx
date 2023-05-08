@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { Anybody } from 'next/font/google';
 import logo from "../../public/vercel.svg";
 import bg from "../../public/background.svg"
 import Header from '@/components/Header';
@@ -7,6 +8,7 @@ import Welcome from '@/components/Welcome';
 import Information from '@/components/Information';
 import Head from 'next/head';
 const inter = Inter({ subsets: ['latin'] })
+const anybody = Anybody({ subsets: ['latin'] })
 
 
 export default function Home() {
@@ -14,11 +16,9 @@ export default function Home() {
     <>
     <Head>
       <title>unai</title>
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="preload" href="/fonts/Inter-roman.var.woff2?v=3.19" as="font" type="font/woff2" crossOrigin="anonymous" />
-      
+      <link rel="icon" href="/favicon.ico" />      
     </Head>
-    <main className={`selection:bg-opacity-80 selection:bg-pink-500 selection:text-white flex min-h-screen flex-col items-center ${inter.className}`}>
+    <main className={`selection:bg-opacity-80 selection:bg-pink-500 selection:text-white flex min-h-screen flex-col items-center ${anybody.className}`}>
       <Header/>
       <Welcome/>
       <Information/>
@@ -27,9 +27,5 @@ export default function Home() {
       © 2023 UMAI
     </footer>
     </>
-
-    
   )
-
-  
 }
