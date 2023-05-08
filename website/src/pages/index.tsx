@@ -23,6 +23,9 @@ export default function Home() {
       <Welcome/>
       <Information/>
     </main>
+    <footer className="flex flex-col items-center justify-center w-full h-full p-10">
+      © 2023 UMAI
+    </footer>
     </>
 
     
