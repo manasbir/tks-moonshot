@@ -1,13 +1,8 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import { Anybody } from 'next/font/google';
-import logo from "../../public/vercel.svg";
-import bg from "../../public/background.svg"
 import Header from '@/components/Header';
 import Welcome from '@/components/Welcome';
 import Information from '@/components/Information';
 import Head from 'next/head';
-const inter = Inter({ subsets: ['latin'] })
 const anybody = Anybody({ subsets: ['latin'] })
 
 
