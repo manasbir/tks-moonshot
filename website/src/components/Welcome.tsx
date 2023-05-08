@@ -25,7 +25,7 @@ export default function Welcome(){
         <div className="min-h-screen w-full bg-gradient-to-b from-neutral-800 to-neutral-800 via-neutral-700 flex flex-col items-center">
             <div className="flex flex-row items-center justify-between w-full h-full min-h-screen">
                 <div className="text-8xl text-pink-500 p-4 flex flex-col justify-center items-center h-full w-full">
-                    <h1>unai</h1>
+                    <h1 className=""><b>unai</b></h1>
                     <p className="text-2xl text-white translate-x-1/2 -translate-y-full">you and ai</p>
                 </div>
                 <div className="w-full flex items-center justify-center p-3">
