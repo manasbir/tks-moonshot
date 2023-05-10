@@ -23,7 +23,7 @@ export default function Home() {
           <Calendar/>   
       </main>
       <footer className="flex flex-col items-center justify-center w-full h-full p-10">
-        © 2023 UNAI
+        © 2023 unai
       </footer>
     </>
   )
