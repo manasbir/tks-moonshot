@@ -4,8 +4,19 @@ import Image from "next/image"
 import { ChatCompletionRequestMessageRoleEnum, Configuration, OpenAIApi } from "openai";
 import { Inter } from "next/font/google";
 
+
+interface Event {
+    title: string,
+    description: string,
+    location: string,
+    start: string,
+    end: string,
+    organizer: string,
+    link: string,
+    frequency: string
+}
 interface ChatProps {
-    newEvents: 
+    newEvents: (newState: Event[]) => void
 }
 
 export default function Chat(props: ChatProps) {
@@ -48,16 +59,16 @@ export default function Chat(props: ChatProps) {
         let arrayOfMessages = messages;
 
         arrayOfMessages.push({"role":"system","content":`The user is now satisfied with the given schedule, the current date is ${new Date}. List the events following this template:
-            "{[
+            "{listOfEvents: [
                 {
-                    title: 'New Year',
-                    description: 'New Year',
-                    location: 'Global',
-                    start: '2023-01-01 00:00:00',
-                    end: '2023-01-01 23:59:59',
+                    title: 'Meditation',
+                    description: 'Meditate to be mindful, learn about yourself',
+                    location: 'Anywhere',
+                    start: '2023-01-01 08:00:00',
+                    end: '2023-01-01 8:30:00',
                     organizer: "UNAI",
                     link: "",
-                    frequency: "YEARLY",
+                    frequency: "DAILY",
                 },
                 {
                     title: 'Weekly Meeting @ DCTRL',
@@ -79,7 +90,11 @@ export default function Chat(props: ChatProps) {
 
         console.log(res)
 
+        if (res.data.choices[0].message?.content != undefined) {
+            props.newEvents(JSON.parse(res.data.choices[0].message?.content).listOfEvents)        
+        }
 
+        
 
     }
 
