@@ -93,7 +93,7 @@ export default function Chat(props: ChatProps) {
             {
                 messages.map((message, index) =>
                     <div key={index} className="text-xs" style={{backgroundColor: `${message.role == "user" ? "#353535": "#222222"}`, textAlign: `${message.role == "user" ? "right" : "left"}`}}>
-                        <p className="font-black text-sm">{message.role == "user" ? "You" : "UMAI"}</p>
+                        <p className="font-black text-sm">{message.role == "user" ? "You" : "UNAI"}</p>
                         <div className="text-xs overflow-auto whitespace-pre-line">
                             {message.content}
                         </div>
