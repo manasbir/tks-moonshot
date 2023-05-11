@@ -31,14 +31,13 @@ export default function Events(props: EventsProps) {
 
   
 
-  const dummyData = [
+  const dummyData = [ ...props.events,
     {
       title: 'null',
       description: 'New Year',
       location: 'Global',
       start: '2000-04-05 00:00:00',
       end: '2000-04-05 00:00:00',
-      color: "null",
       organizer: "null",
       link: "",
       frequency: "null",
@@ -49,7 +48,6 @@ export default function Events(props: EventsProps) {
       location: 'Global',
       start: '2023-01-01 00:00:00',
       end: '2023-01-01 10:00:00',
-      color: "null",
       organizer: "null",
       link: "",
       frequency: "null",
@@ -61,7 +59,6 @@ export default function Events(props: EventsProps) {
       start: '2023-04-05 00:00:00',
       end: '2023-01-05 10:00:00',
       link: 'https://calendar.google.com/calendar/u/0/r/eventedit/copy/MjAyMzA0MDZfNm5sdW43MWVvbWpybmxoNTZyNmZ0NWE2dTggZW4uY2FuYWRpYW4jaG9saWRheUB2',
-      color: "#f20808",
       organizer: "Test Maker",
       frequency: "WEEKLY",
     },
@@ -72,7 +69,6 @@ export default function Events(props: EventsProps) {
       start: '2023-04-05 00:00:00',
       end: '2023-01-05 10:00:00',
       link: 'https://calendar.google.com/calendar/u/0/r/eventedit/copy/MjAyMzA0MDZfNm5sdW43MWVvbWpybmxoNTZyNmZ0NWE2dTggZW4uY2FuYWRpYW4jaG9saWRheUB2',
-      color: "#225208",
       organizer: "Test Maker",
       frequency: "WEEKLY",
     },
@@ -83,7 +79,6 @@ export default function Events(props: EventsProps) {
       start: '2023-04-05 00:00:00',
       end: '2023-01-05 10:00:00',
       link: 'https://calendar.google.com/calendar/u/0/r/eventedit/copy/MjAyMzA0MDZfNm5sdW43MWVvbWpybmxoNTZyNmZ0NWE2dTggZW4uY2FuYWRpYW4jaG9saWRheUB2',
-      color: "#0832f2",
       organizer: "Test Maker",
       frequency: "WEEKLY",
     },
@@ -94,7 +89,6 @@ export default function Events(props: EventsProps) {
       start: '2023-04-01 00:00:00',
       end: '2023-01-05 10:00:00',
       link: 'https://calendar.google.com/calendar/u/0/r/eventedit/copy/MjAyMzA0MDZfNm5sdW43MWVvbWpybmxoNTZyNmZ0NWE2dTggZW4uY2FuYWRpYW4jaG9saWRheUB2',
-      color: "#f832f2",
       organizer: "Test Maker",
       frequency: "",
     },
@@ -105,12 +99,11 @@ export default function Events(props: EventsProps) {
       start: '2023-04-05 00:00:00',
       end: '2023-01-05 10:00:00',
       link: 'https://calendar.google.com/calendar/u/0/r/eventedit/copy/MjAyMzA0MDZfNm5sdW43MWVvbWpybmxoNTZyNmZ0NWE2dTggZW4uY2FuYWRpYW4jaG9saWRheUB2',
-      color: "#3048e2",
       organizer: "Test Maker",
       frequency: "",
     },
     // Add more events here as needed
-  ];
+  ].sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime());
 
   const [popup, setPopup] = useState<CalendarEvent>(dummyData[0] as CalendarEvent);
 
@@ -118,9 +111,10 @@ export default function Events(props: EventsProps) {
     // dummy data for now
     const events = dummyData.filter((event) => {
       // Extract the date part from the event start time
-      const eventDate = new Date(event.start).toISOString().slice(0,10);
+      // 
+      const eventDate = event.start.slice(0,10);
       // Compare the event date with the target date
-      const targetDate = props.date;
+      const targetDate = new Date(props.date).toISOString().slice(0,10);
       return eventDate == targetDate;
     });
 
@@ -135,21 +129,6 @@ export default function Events(props: EventsProps) {
 
     const refArray = useRef<HTMLDivElement[]>([]);
 
-    useEffect(() => {
-      function isOutsideClick(event: MouseEvent) {
-        refArray.current.forEach((element) => {
-          console.log(element && !element.contains(event.target as Node))
-          if (element && !element.contains(event.target as Node)) {
-            setPopup(dummyData[0] as unknown as CalendarEvent);
-          }
-        });
-      }
-      addEventListener("mousedown", isOutsideClick);
-      return () => {
-        removeEventListener("mousedown", isOutsideClick);
-      }
-    }, [popup])
-
 
 
 
@@ -159,8 +138,7 @@ export default function Events(props: EventsProps) {
           return(
             <div 
               ref={(element => refArray.current.push(element!))}
-              style={{backgroundColor: event.color}}
-              onClick={() => handleClick(event as CalendarEvent)} className={`flex flex-col justify-center text-white bg-[${event.color}] p-0.5 text-xs rounded-sm text-ellipsis w-full cursor-pointer`} key={event.title}>
+              onClick={() => handleClick(event as CalendarEvent)} className={`flex flex-col justify-center text-white bg-blue-700 p-0.5 text-xs rounded-sm text-ellipsis w-full cursor-pointer`} key={event.title}>
               {event.title}
               {(popup as CalendarEvent).title == (event as CalendarEvent).title ? <EventPopup event={event} onClose={() => handleClose()}/>: <></>}
             </div>

@@ -47,6 +47,7 @@ export default function EventPopup(props: EventPopupProps) {
       <a className='flex flex-row items-center' href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(props.event.location)}`} target='_blank'>
         <Image className='w-5 h-5 mr-1' src={location} alt="location"/>
         <p className='text-xs mt-1'>{props.event.location}</p>
+        <p>{props.event.start}</p>
       </a>
       <div className="flex flex-col">
         <a className="flex flex-row border rounded-sm p-1 text-center mt-1" href={googleCalendar.render()} target='_blank'>

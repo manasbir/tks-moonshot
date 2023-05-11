@@ -44,7 +44,7 @@ export default function Calendar(props: {events: Event[]}) {
 
     for (let i = 0; i < monthStartsOn; i++) {
       days.push(
-        <div className='flex flex-col sm:min-h-28 min-h-[5rem] overflow-auto p-1 border' key={i + "prevMonth"}>
+        <div className='flex flex-col min-h-[6rem] overflow-auto p-1 border' key={i + "prevMonth"}>
             <div className='flex flex-col w-1/2 h-full text-gray-500'>
               {daysInPrevMonth - monthStartsOn + i + 1}
             </div>
@@ -57,7 +57,7 @@ export default function Calendar(props: {events: Event[]}) {
 
     for (let i = 1; i <= daysInMonth; i++) {
       days.push(
-        <div className='flex flex-col sm:min-h-28 min-h-[5rem] overflow-auto border p-1' key={i}>
+        <div className='flex flex-col min-h-[6rem] overflow-auto border p-1' key={i}>
             <div className='flex flex-col w-1/2 h-full text-black'>
               {i}
             </div>
@@ -72,7 +72,7 @@ export default function Calendar(props: {events: Event[]}) {
 
     for (let i = 1; i <= daysLeft; i++) {
       days.push(
-        <div className='flex flex-col min-h-[5rem] overflow-auto p-1 border' key={i + "nextMonth"}>
+        <div className='flex flex-col min-h-[6rem] overflow-auto p-1 border' key={i + "nextMonth"}>
             <div className='flex flex-col w-1/2 h-full text-gray-400'>
               {i}
             </div>
@@ -130,7 +130,7 @@ export default function Calendar(props: {events: Event[]}) {
  
 
   return (
-      <div className='flex flex-col max-w-[40rem] min-w-[24rem] w-7/12 p-3'>
+      <div className='flex flex-col max-w-[50rem] min-w-[24rem] w-full p-3'>
           {renderCalendar()}
       </div>
   )
