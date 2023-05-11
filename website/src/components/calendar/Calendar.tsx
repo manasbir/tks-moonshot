@@ -7,7 +7,18 @@ import CreateEvent from './CreateEvent'
 
 // use axios to fetch data from the backend
 
-export default function Home() {
+interface Event {
+  title: string,
+  description: string,
+  location: string,
+  start: string,
+  end: string,
+  organizer: string,
+  link: string,
+  frequency: string
+}
+
+export default function Calendar(props: {events: Event[]}) {
   // options for data
   // (2023) year -> (01) month -> (01) day -> title, description, startTime, endTime
   // (2023-01-01)day -> title, description, startTime, endTime
@@ -19,25 +30,7 @@ export default function Home() {
   const [calendarSettings, setCalendarSettings] = useState(new Date())
   const [holoscene, setHoloscene] = useState(false)
 
-  interface Event {
-    title: string,
-    description: string,
-    location: string,
-    start_time: string,
-    end_time: string,
-    color: string,
-    organizer: string,
-    link: string
-  }
-
-
-
-
-
-
   const renderCalendar = () => {
-    const date = calendarSettings;
-    
     // initial data
     const year = calendarSettings.getFullYear();
     const month = calendarSettings.getMonth();
@@ -56,7 +49,7 @@ export default function Home() {
               {daysInPrevMonth - monthStartsOn + i + 1}
             </div>
           <div>
-            <Events date={new Date(year, month - 1, daysInPrevMonth - monthStartsOn + 1 + i).toISOString().slice(0,10)}/>
+            <Events date={new Date(year, month - 1, daysInPrevMonth - monthStartsOn + 1 + i).toISOString().slice(0,10)} events={props.events}/>
           </div>
         </div>
       );
@@ -69,7 +62,7 @@ export default function Home() {
               {i}
             </div>
           <div>
-            <Events date={new Date(year, month, i).toISOString().slice(0,10)}/>
+            <Events date={new Date(year, month, i).toISOString().slice(0,10)} events={props.events}/>
           </div>
         </div>
       );
@@ -84,7 +77,7 @@ export default function Home() {
               {i}
             </div>
           <div>
-            <Events date={new Date(year, month + 1, i).toISOString().slice(0,10)}/>
+            <Events date={new Date(year, month + 1, i).toISOString().slice(0,10)} events={props.events}/>
           </div>
         </div>
       );
@@ -132,54 +125,6 @@ export default function Home() {
       </div>
     </div>
     )
-  }
-
-  const handleEventMenu = () => {
-    if (eventMenu) {
-      return (
-        <div className='flex flex-col items-center justify-center w-full h-full bg-black bg-opacity-50 absolute'>
-          <div className='flex flex-col items-center w-1/4 min-w-fit bg-white text-black text-sm gap-2 p-2'>
-            <div className='flex flex-row justify-end w-full'>
-              <button onClick={() => setEventMenu(false)}>X</button>
-            </div>
-            <form onSubmit={() => setEventMenu(false)} className='flex flex-col items-center w-2/3 gap-1 '>
-              <div className='w-full'>
-              <label className='w-full'>Event*</label>
-              <input className='w-full border' type='text' placeholder='event name'/>
-              </div>
-
-              <div className='w-full'>
-              <label className='w-full flex felx-col'>Start Date*</label>
-              <input className='w-full border' type="datetime-local" placeholder='start date'/>
-              </div>
-
-              <div className='w-full'>
-              <label className='w-full'>End Date*</label>
-              <input className='w-full border' type="datetime-local" placeholder='end date'/>
-              </div>
-
-              <div className='w-full'>
-              <label className='w-full'>Location*</label>
-              <input className='w-full border' type='' placeholder='436 W Pender St, Vancouver, BC V6B 1T5'/>
-              </div>
-
-              <div className='w-full'>
-              <label className='w-full'>Event Description*
-                <textarea className='w-full border' placeholder='description'/>
-              </label>
-              </div>
-
-              <div className='w-full'>
-              <label className='w-full'>Color</label>
-              <input className='w-full border' type="color" placeholder='color (optional)'/>
-              </div>
-
-              <button className='border mt-1'>Add</button>
-            </form>
-          </div>
-        </div>
-      )
-    }
   }
 
  

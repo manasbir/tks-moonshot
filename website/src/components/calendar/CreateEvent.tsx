@@ -10,8 +10,6 @@ export default function CreateEvent(props: CreateEventProps) {
         props.onClose();
     }
 
-    
-
     return (
         <div className='flex flex-col items-center justify-center w-full h-full bg-black bg-opacity-50 absolute'>
           <div className='flex flex-col items-center w-1/4 min-w-fit bg-white text-black text-sm gap-2 p-2'>

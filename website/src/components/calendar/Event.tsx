@@ -1,8 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import EventPopup from "./EventPopup";
 
+
+interface Event {
+  title: string,
+  description: string,
+  location: string,
+  start: string,
+  end: string,
+  organizer: string,
+  link: string,
+  frequency: string
+}
 interface EventsProps {
     date: string;
+    events: Event[];
 }
 
 interface CalendarEvent {
