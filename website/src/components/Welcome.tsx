@@ -6,7 +6,7 @@ export default function Welcome(){
     useEffect(() => {
         const text = 
             ` optimize your day with unai \n
-            > unai is your personal assistant \n
+            > your personal assistant \n
             > helping you waste less time and work to your biological strengths \n
             > humans weren't made to have 8 hours of flow state, nor turn it on at will \n
             > unai helps you work with your body, not against it`
@@ -22,14 +22,14 @@ export default function Welcome(){
 
     
     return(
-        <div className="min-h-screen w-full bg-gradient-to-b from-neutral-800 to-neutral-800 via-neutral-700 flex flex-col items-center">
-            <div className="flex flex-row items-center justify-between w-full h-full min-h-screen">
-                <div className="text-8xl text-pink-500 p-4 flex flex-col justify-center items-center h-full w-full">
+        <div className="min-h-screen w-full bg-gradient-to-b from-black to-blue-800 via-neutral-900 flex flex-col items-center max-w-full">
+            <div className="flex flex-row items-center justify-between w-full h-full min-h-screen overflow-auto max-w-full">
+                <div className="text-9xl text-pink-500 p-4 flex flex-col justify-center items-center h-full w-full min-w-[24rem] flex-wrap">
                     <h1 className=""><b>unai</b></h1>
-                    <p className="text-2xl text-white translate-x-1/2 -translate-y-full"><b>you and ai</b></p>
+                    <p className="text-2xl text-white translate-x-[80%] -translate-y-[130%]"><b>you and ai</b></p>
                 </div>
-                <div className="w-full flex items-center justify-center p-3">
-                    <div className="p-1 border rounded-lg h-full max-w-prose bg-black flex flex-col font-mono text-sm whitespace-pre-line">
+                <div className="w-full flex items-center justify-center p-3 h-full min-w-[24rem]">
+                    <div className="p-2 border rounded-lg h-full max-w-prose bg-black flex flex-col font-mono text-sm whitespace-pre-line min-h-[20rem] min-w-full">
                         {">"}{currentText}
                     </div>
                 </div>
