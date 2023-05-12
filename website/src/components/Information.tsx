@@ -1,10 +1,7 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import logo from "../../public/favicon.ico";
 import Heart from "../../public/heart.svg"
 import Graph from "../../public/graph.svg"
-import Feedback from "../../public/feedback.svg"
-import Pencil from "../../public/pencil.svg"
 import Link from 'next/link';
 import Calendar from '../../public/calendar.svg';
 import Eye from "../../public/eye.svg"
@@ -14,7 +11,7 @@ import Biometric from "../../public/biometric.svg"
 const inter = Inter({subsets: ["latin"]})
 
 export default function Information(){
-    return (
+    return ( 
         <div className="flex flex-col items-center justify-center w-full h-full p-10 bg-gradient-to-t to-black via-neutral-800 from-pink-700 font-sans">
             <div className="max-w-prose m-5 p-2">
                 <h1 className='text-2xl font-semibold mb-2'>How UNAI works</h1>
