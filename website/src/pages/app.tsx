@@ -28,7 +28,7 @@ export default function Home() {
         <title>unai app</title>
         <link rel="icon" href="/favicon.ico" />      
       </Head>
-      <main className={`selection:bg-opacity-80 selection:bg-pink-500 selection:text-white flex min-h-screen flex-row justify-evenly ${anybody.className} w-full bg-neutral-700`}>
+      <main className={`selection:bg-opacity-80 selection:bg-pink-500 selection:text-white flex min-h-screen flex-row justify-evenly w-full bg-neutral-700`}>
           <Chat newEvents={handleNewEvents}/>
           <Calendar events={schedule}/>   
       </main>
